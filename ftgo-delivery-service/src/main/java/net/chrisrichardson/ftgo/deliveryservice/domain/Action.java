@@ -33,7 +33,8 @@ public class Action {
   }
 
   public static Action makePickup(long deliveryId, Address pickupAddress, LocalDateTime pickupTime) {
-    return new Action(DeliveryActionType.PICKUP, deliveryId, pickupAddress, pickupTime);
+    DeliveryActionType type = DeliveryActionType.PICKUP;
+    return new Action(type, deliveryId, pickupAddress, pickupTime);
   }
 
   public static Action makeDropoff(long deliveryId, Address deliveryAddress, LocalDateTime deliveryTime) {
