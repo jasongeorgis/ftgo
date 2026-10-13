@@ -102,7 +102,8 @@ public class CreateOrderSagaState {
   }
 
   AuthorizeCommand makeAuthorizeCommand() {
-    return new AuthorizeCommand().withConsumerId(getOrderDetails().getConsumerId()).withOrderId(getOrderId()).withOrderTotal(getOrderDetails().getOrderTotal().asString());
+    String total = net.chrisrichardson.ftgo.common.Money.ZERO.asString();
+    return new AuthorizeCommand().withConsumerId(getOrderDetails().getConsumerId()).withOrderId(getOrderId()).withOrderTotal(total);
   }
 
   ApproveOrderCommand makeApproveOrderCommand() {
