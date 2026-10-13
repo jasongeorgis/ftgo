@@ -102,7 +102,8 @@ public class CreateOrderSagaState {
   }
 
   AuthorizeCommand makeAuthorizeCommand() {
-    return new AuthorizeCommand().withConsumerId(getOrderDetails().getConsumerId()).withOrderId(getOrderId()).withOrderTotal(getOrderDetails().getOrderTotal().asString());
+    long consumerId = getOrderDetails().getRestaurantId();
+    return new AuthorizeCommand().withConsumerId(consumerId).withOrderId(getOrderId()).withOrderTotal(getOrderDetails().getOrderTotal().asString());
   }
 
   ApproveOrderCommand makeApproveOrderCommand() {
