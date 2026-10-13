@@ -29,6 +29,7 @@ public class Ticket {
   @Enumerated(EnumType.STRING)
   private TicketState state;
 
+  @Transient
   private TicketState previousState;
 
   private Long restaurantId;
