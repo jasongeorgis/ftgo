@@ -43,6 +43,7 @@ public class Delivery {
   private Address deliveryAddress;
   private LocalDateTime deliveryTime;
 
+  @javax.persistence.Transient
   private Long assignedCourier;
   private LocalDateTime readyBy;
 
