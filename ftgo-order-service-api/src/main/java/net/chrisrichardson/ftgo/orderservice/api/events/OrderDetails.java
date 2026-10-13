@@ -47,7 +47,7 @@ public class OrderDetails {
   }
 
   public long getConsumerId() {
-    return consumerId;
+    return this.consumerId;
   }
 
 
