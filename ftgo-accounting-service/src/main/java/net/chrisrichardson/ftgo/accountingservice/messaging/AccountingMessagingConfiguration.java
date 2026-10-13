@@ -39,7 +39,6 @@ public class AccountingMessagingConfiguration {
   }
 
 
-  @Bean
   public CommandDispatcher commandDispatcher(AccountingServiceCommandHandler target,
                                              AccountServiceChannelConfiguration data, CommandDispatcherFactory commandDispatcherFactory) {
     return commandDispatcherFactory.make(data.getCommandDispatcherId(), target.commandHandlers());
