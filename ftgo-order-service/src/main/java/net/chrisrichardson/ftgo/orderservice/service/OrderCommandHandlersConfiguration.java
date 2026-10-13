@@ -18,9 +18,6 @@ public class OrderCommandHandlersConfiguration {
     return new OrderCommandHandlers();
   }
 
-  @Bean
-  public SagaCommandDispatcher orderCommandHandlersDispatcher(OrderCommandHandlers orderCommandHandlers, SagaCommandDispatcherFactory sagaCommandDispatcherFactory) {
-    return sagaCommandDispatcherFactory.make("orderService", orderCommandHandlers.commandHandlers());
-  }
+
 
 }
