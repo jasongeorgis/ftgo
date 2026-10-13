@@ -60,7 +60,7 @@ public class CancelOrderSaga implements SimpleSaga<CancelOrderSagaData> {
 
   private CommandWithDestination reverseAuthorization(CancelOrderSagaData data) {
     return send(new ReverseAuthorizationCommand(data.getConsumerId(), data.getOrderId(), data.getOrderTotal()))
-            .to(AccountingServiceChannels.accountingServiceChannel)
+            .to(KitchenServiceChannels.COMMAND_CHANNEL)
             .build();
 
   }
