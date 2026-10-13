@@ -94,6 +94,10 @@ public class Order {
     }
   }
 
+  public boolean isCancellable() {
+    return APPROVED.equals(state);
+  }
+
   public List<OrderDomainEvent> undoPendingCancel() {
     switch (state) {
       case CANCEL_PENDING:
