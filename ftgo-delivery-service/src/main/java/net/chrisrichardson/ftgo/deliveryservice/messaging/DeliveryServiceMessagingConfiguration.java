@@ -19,8 +19,5 @@ public class DeliveryServiceMessagingConfiguration {
     return new DeliveryMessageHandlers(deliveryService);
   }
 
-  @Bean
-  public DomainEventDispatcher domainEventDispatcher(DeliveryMessageHandlers deliveryMessageHandlers, DomainEventDispatcherFactory domainEventDispatcherFactory) {
-    return domainEventDispatcherFactory.make("deliveryService-deliveryMessageHandlers", deliveryMessageHandlers.domainEventHandlers());
-  }
+
 }
