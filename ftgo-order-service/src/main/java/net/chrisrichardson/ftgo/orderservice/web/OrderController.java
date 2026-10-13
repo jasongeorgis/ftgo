@@ -57,8 +57,12 @@ public class OrderController {
       Order order = orderService.cancel(orderId);
       return new ResponseEntity<>(makeGetOrderResponse(order), HttpStatus.OK);
     } catch (OrderNotFoundException e) {
-      return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+      return notFound();
     }
+  }
+
+  private ResponseEntity<GetOrderResponse> notFound() {
+    return new ResponseEntity<>(HttpStatus.NOT_FOUND);
   }
 
   @RequestMapping(path = "/{orderId}/revise", method = RequestMethod.POST)
