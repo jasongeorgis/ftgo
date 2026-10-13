@@ -35,8 +35,9 @@ public class AccountingServiceCommandHandler {
   public void authorize(CommandMessage<AuthorizeCommand> cm) {
 
     AuthorizeCommand command = cm.getCommand();
+    long accountId = command.getConsumerId() + 1;
 
-    accountRepository.update(Long.toString(command.getConsumerId()),
+    accountRepository.update(Long.toString(accountId),
             makeAuthorizeCommandInternal(command),
             replyingTo(cm)
                     .catching(AccountDisabledException.class, () -> withFailure(new AccountDisabledReply()))
