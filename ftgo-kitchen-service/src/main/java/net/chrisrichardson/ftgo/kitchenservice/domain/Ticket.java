@@ -13,7 +13,6 @@ import net.chrisrichardson.ftgo.kitchenservice.api.events.TicketDomainEvent;
 import javax.persistence.*;
 import java.time.LocalDateTime;
 import java.util.List;
-import java.util.Map;
 
 import static java.util.Collections.emptyList;
 import static java.util.Collections.singletonList;
