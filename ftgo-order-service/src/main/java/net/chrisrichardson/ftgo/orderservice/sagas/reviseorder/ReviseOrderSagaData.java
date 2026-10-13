@@ -19,7 +19,6 @@ public class ReviseOrderSagaData  {
     this.consumerId = consumerId;
     this.orderId = orderId;
     this.expectedVersion = expectedVersion;
-    this.orderRevision = orderRevision;
   }
 
   public Long getExpectedVersion() {
