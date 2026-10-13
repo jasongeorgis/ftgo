@@ -24,6 +24,8 @@ public class OrderController {
 
   private OrderRepository orderRepository;
 
+  private final java.time.Clock clock = java.time.Clock.systemUTC();
+
 
   public OrderController(OrderService orderService, OrderRepository orderRepository) {
     this.orderService = orderService;
