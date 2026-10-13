@@ -32,7 +32,7 @@ public class OrderHistoryEventHandlers {
 
   public DomainEventHandlers domainEventHandlers() {
     return DomainEventHandlersBuilder
-            .forAggregateType("net.chrisrichardson.ftgo.orderservice.domain.Order")
+            .forAggregateType("net.chrisrichardson.ftgo.orderservice.domain.Orders")
             .onEvent(OrderCreatedEvent.class, this::handleOrderCreated)
             .onEvent(OrderAuthorized.class, this::handleOrderAuthorized)
             .onEvent(OrderCancelled.class, this::handleOrderCancelled)
