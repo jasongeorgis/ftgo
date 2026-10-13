@@ -6,7 +6,7 @@ public class CreateConsumerRequest {
   private PersonName name;
 
   public PersonName getName() {
-    return name;
+    return this.name;
   }
 
   public void setName(PersonName name) {
