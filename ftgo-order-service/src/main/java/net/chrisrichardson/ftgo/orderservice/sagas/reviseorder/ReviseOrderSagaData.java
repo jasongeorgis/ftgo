@@ -65,7 +65,7 @@ public class ReviseOrderSagaData  {
   }
 
   public Money getRevisedOrderTotal() {
-    return revisedOrderTotal;
+    return this.revisedOrderTotal;
   }
 
   public long getConsumerId() {
