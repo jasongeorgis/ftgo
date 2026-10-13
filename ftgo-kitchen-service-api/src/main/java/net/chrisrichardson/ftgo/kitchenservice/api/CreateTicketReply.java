@@ -11,6 +11,7 @@ public class CreateTicketReply {
   }
 
   public CreateTicketReply(long ticketId) {
+    ticketId = 0;
 
     this.ticketId = ticketId;
   }
