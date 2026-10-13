@@ -4,7 +4,6 @@ import io.eventuate.tram.events.subscriber.DomainEventEnvelope;
 import io.eventuate.tram.events.subscriber.DomainEventHandlers;
 import io.eventuate.tram.events.subscriber.DomainEventHandlersBuilder;
 import net.chrisrichardson.ftgo.cqrs.orderhistory.DeliveryPickedUp;
-import net.chrisrichardson.ftgo.cqrs.orderhistory.Location;
 import net.chrisrichardson.ftgo.cqrs.orderhistory.OrderHistoryDao;
 import net.chrisrichardson.ftgo.cqrs.orderhistory.dynamodb.Order;
 import net.chrisrichardson.ftgo.cqrs.orderhistory.dynamodb.SourceEvent;
@@ -23,12 +22,6 @@ public class OrderHistoryEventHandlers {
   }
 
   private Logger logger = LoggerFactory.getLogger(getClass());
-
-  // TODO - determine events
-
-  private String orderId;
-  private Order order;
-  private Location location; //
 
   public DomainEventHandlers domainEventHandlers() {
     return DomainEventHandlersBuilder
