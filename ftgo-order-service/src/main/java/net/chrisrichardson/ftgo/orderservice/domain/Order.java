@@ -107,6 +107,9 @@ public class Order {
   public List<OrderDomainEvent> noteCancelled() {
     switch (state) {
       case CANCEL_PENDING:
+        if (getLineItems().isEmpty()) {
+          throw new IllegalStateException("order has no line items");
+        }
         this.state = OrderState.CANCELLED;
         return singletonList(new OrderCancelled());
       default:
