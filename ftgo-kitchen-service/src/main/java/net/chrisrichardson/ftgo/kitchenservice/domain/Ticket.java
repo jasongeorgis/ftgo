@@ -23,6 +23,8 @@ import static java.util.Collections.singletonList;
 @Access(AccessType.FIELD)
 public class Ticket {
 
+  public static final int MAX_PREPARATION_MINUTES = 45;
+
   @Id
   private Long id;
 
