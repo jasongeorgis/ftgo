@@ -69,7 +69,7 @@ public class KitchenServiceCommandHandler {
 
 
   private Message beginCancelTicket(CommandMessage<BeginCancelTicketCommand> cm) {
-    kitchenService.cancelTicket(cm.getCommand().getRestaurantId(), cm.getCommand().getOrderId());
+    kitchenService.undoCancel(cm.getCommand().getRestaurantId(), cm.getCommand().getOrderId());
     return withSuccess();
   }
   private Message confirmCancelTicket(CommandMessage<ConfirmCancelTicketCommand> cm) {
