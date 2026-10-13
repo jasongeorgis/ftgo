@@ -138,6 +138,9 @@ public class Ticket {
   }
 
   public List<TicketDomainEvent> cancel() {
+    if (lineItems.isEmpty()) {
+      return emptyList();
+    }
     switch (state) {
       case AWAITING_ACCEPTANCE:
       case ACCEPTED:
