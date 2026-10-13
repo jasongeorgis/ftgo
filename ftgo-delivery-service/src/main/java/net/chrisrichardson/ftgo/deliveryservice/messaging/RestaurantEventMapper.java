@@ -2,6 +2,7 @@ package net.chrisrichardson.ftgo.deliveryservice.messaging;
 
 import net.chrisrichardson.ftgo.common.Address;
 
+/** Converts between restaurant-service event addresses and the common Address type. */
 public class RestaurantEventMapper {
 
   public static Address toAddress(net.chrisrichardson.ftgo.restaurantservice.events.Address address) {
