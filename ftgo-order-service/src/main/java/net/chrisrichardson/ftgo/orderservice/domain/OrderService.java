@@ -143,7 +143,7 @@ public class OrderService {
   }
 
   public void undoCancel(long orderId) {
-    updateOrder(orderId, Order::undoPendingCancel);
+    updateOrder(orderId, Order::revertPendingCancel);
   }
 
   public void confirmCancelled(long orderId) {
