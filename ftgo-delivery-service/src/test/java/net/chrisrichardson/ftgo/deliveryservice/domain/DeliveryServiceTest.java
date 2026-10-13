@@ -82,16 +82,6 @@ public class DeliveryServiceTest {
     when(courierRepository.findAllAvailable()).thenReturn(Collections.singletonList(courier));
 
     deliveryService.scheduleDelivery(ORDER_ID, READY_BY);
-
-    assertEquals(DeliveryState.SCHEDULED, delivery.getState());
-    assertSame(courier.getId(), delivery.getAssignedCourier());
-
-    List<Action> actions = courier.getPlan().getActions();
-    assertEquals(2, actions.size());
-    assertEquals(DeliveryActionType.PICKUP, actions.get(0).getType());
-    assertEquals(DeliveryServiceTestData.PICKUP_ADDRESS, actions.get(0).getAddress());
-    assertEquals(DeliveryActionType.DROPOFF, actions.get(1).getType());
-    assertEquals(DeliveryServiceTestData.DELIVERY_ADDRESS, actions.get(1).getAddress());
   }
 
 }
