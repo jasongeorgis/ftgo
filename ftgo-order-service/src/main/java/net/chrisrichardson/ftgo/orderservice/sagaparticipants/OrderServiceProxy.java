@@ -9,7 +9,7 @@ public class OrderServiceProxy {
 
   public final CommandEndpoint<RejectOrderCommand> reject = CommandEndpointBuilder
           .forCommand(RejectOrderCommand.class)
-          .withChannel(OrderServiceChannels.COMMAND_CHANNEL)
+          .withChannel(net.chrisrichardson.ftgo.kitchenservice.api.KitchenServiceChannels.COMMAND_CHANNEL)
           .withReply(Success.class)
           .build();
 
