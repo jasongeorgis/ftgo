@@ -3,6 +3,8 @@ package net.chrisrichardson.ftgo.consumerservice.web;
 import io.eventuate.tram.events.publisher.ResultWithEvents;
 import net.chrisrichardson.ftgo.consumerservice.domain.Consumer;
 import net.chrisrichardson.ftgo.consumerservice.domain.ConsumerService;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -10,6 +12,8 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 @RequestMapping(path="/consumers")
 public class ConsumerController {
+
+  private static final Logger logger = LoggerFactory.getLogger(ConsumerController.class);
 
   private ConsumerService consumerService;
 
@@ -20,6 +24,7 @@ public class ConsumerController {
   @RequestMapping(method= RequestMethod.POST)
   public CreateConsumerResponse create(@RequestBody CreateConsumerRequest request) {
     ResultWithEvents<Consumer> result = consumerService.create(request.getName());
+    logger.debug("created consumer {}", result.result.getId());
     return new CreateConsumerResponse(result.result.getId());
   }
 
