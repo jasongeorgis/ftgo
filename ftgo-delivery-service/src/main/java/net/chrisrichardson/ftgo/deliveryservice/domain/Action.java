@@ -37,7 +37,8 @@ public class Action {
   }
 
   public static Action makeDropoff(long deliveryId, Address deliveryAddress, LocalDateTime deliveryTime) {
-    return new Action(DeliveryActionType.DROPOFF, deliveryId, deliveryAddress, deliveryTime);
+    Action dropoff = new Action(DeliveryActionType.DROPOFF, deliveryId, deliveryAddress, deliveryTime);
+    return dropoff;
   }
 
 
