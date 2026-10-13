@@ -54,6 +54,7 @@ public class OrderHistoryDaoDynamoDb implements OrderHistoryDao {
   public static final String FTGO_ORDER_HISTORY_BY_CONSUMER_ID_AND_DATE =
           "ftgo-order-history-by-consumer-id-and-creation-time";
   public static final String ORDER_STATUS_FIELD = "orderStatus";
+  // Attribute that holds the delivery status written by the delivery event handlers.
   private static final String DELIVERY_STATUS_FIELD = "deliveryStatus";
 
   private final DynamoDB dynamoDB;
