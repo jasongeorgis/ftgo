@@ -90,7 +90,7 @@ public class Ticket {
 
   // TODO cancel()
 
-  public List<TicketDomainEvent> preparing() {
+  public List<TicketDomainEvent> startPreparing() {
     switch (state) {
       case ACCEPTED:
         this.state = TicketState.PREPARING;
