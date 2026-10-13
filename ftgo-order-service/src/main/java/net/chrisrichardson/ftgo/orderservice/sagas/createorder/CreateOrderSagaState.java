@@ -63,6 +63,10 @@ public class CreateOrderSagaState {
     return ticketId;
   }
 
+  private String describeOrder() {
+    return "order " + getOrderId();
+  }
+
   CreateTicket makeCreateTicketCommand() {
     return new CreateTicket(getOrderDetails().getRestaurantId(), getOrderId(), makeTicketDetails(getOrderDetails()));
   }
