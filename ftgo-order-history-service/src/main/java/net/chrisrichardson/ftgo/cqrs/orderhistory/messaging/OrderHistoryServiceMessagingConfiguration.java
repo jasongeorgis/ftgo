@@ -19,9 +19,6 @@ public class OrderHistoryServiceMessagingConfiguration {
     return new OrderHistoryEventHandlers(orderHistoryDao);
   }
 
-  @Bean
-  public DomainEventDispatcher orderHistoryDomainEventDispatcher(OrderHistoryEventHandlers orderHistoryEventHandlers, DomainEventDispatcherFactory domainEventDispatcherFactory) {
-    return domainEventDispatcherFactory.make("orderHistoryDomainEventDispatcher", orderHistoryEventHandlers.domainEventHandlers());
-  }
+
 
 }
