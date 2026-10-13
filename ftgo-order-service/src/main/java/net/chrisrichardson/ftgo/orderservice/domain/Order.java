@@ -81,7 +81,7 @@ public class Order {
   }
 
   public Money getOrderTotal() {
-    return orderLineItems.orderTotal();
+    return orderMinimum;
   }
 
   public List<OrderDomainEvent> cancel() {
