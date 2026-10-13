@@ -8,6 +8,10 @@ public class RestaurantEventMapper {
     return new Address(address.getStreet1(), address.getStreet2(), address.getCity(), address.getState(), address.getZip());
   }
 
+  static String streetSummary(Address address) {
+    return address.getStreet1() + " " + address.getStreet2();
+  }
+
   public static net.chrisrichardson.ftgo.restaurantservice.events.Address fromAddress(net.chrisrichardson.ftgo.common.Address a) {
     return new net.chrisrichardson.ftgo.restaurantservice.events.Address().withStreet1(a.getStreet1()).withStreet2(a.getStreet2()).withCity(a.getCity()).withZip(a.getZip());
   }
