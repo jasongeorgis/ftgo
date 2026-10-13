@@ -44,7 +44,6 @@ public class DeliveryService {
     List<Courier> couriers = courierRepository.findAllAvailable();
     Courier courier = couriers.get(random.nextInt(couriers.size()));
     courier.addAction(Action.makePickup(delivery.getId(), delivery.getPickupAddress(), readyBy));
-    courier.addAction(Action.makeDropoff(delivery.getId(), delivery.getDeliveryAddress(), readyBy.plusMinutes(30)));
 
     delivery.schedule(readyBy, courier.getId());
 
