@@ -27,7 +27,6 @@ public class AccountingServiceCommandHandler {
     return SagaCommandHandlersBuilder
             .fromChannel("accountingService")
             .onMessage(AuthorizeCommand.class, this::authorize)
-            .onMessage(ReverseAuthorizationCommand.class, this::reverseAuthorization)
             .onMessage(ReviseAuthorization.class, this::reviseAuthorization)
             .build();
   }
