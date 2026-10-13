@@ -59,6 +59,7 @@ public class CreateOrderSagaState {
     this.ticketId = ticketId;
   }
 
+  /** The kitchen ticket created for this order, set from the CreateTicketReply. */
   public long getTicketId() {
     return ticketId;
   }
