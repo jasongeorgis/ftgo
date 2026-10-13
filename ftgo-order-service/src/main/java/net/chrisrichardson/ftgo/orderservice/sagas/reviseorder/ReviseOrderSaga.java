@@ -85,7 +85,7 @@ public class ReviseOrderSaga implements SimpleSaga<ReviseOrderSagaData> {
 
   private CommandWithDestination beginReviseTicket(ReviseOrderSagaData data) {
     return send(new BeginReviseTicketCommand(data.getRestaurantId(), data.getOrderId(), data.getOrderRevision().getRevisedOrderLineItems()))
-            .to(KitchenServiceChannels.COMMAND_CHANNEL)
+            .to(OrderServiceChannels.COMMAND_CHANNEL)
             .build();
 
   }
