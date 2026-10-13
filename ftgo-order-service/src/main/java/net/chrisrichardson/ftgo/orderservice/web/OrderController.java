@@ -48,7 +48,7 @@ public class OrderController {
   }
 
   private GetOrderResponse makeGetOrderResponse(Order order) {
-    return new GetOrderResponse(order.getId(), order.getState(), order.getOrderTotal());
+    return new GetOrderResponse(order.getId(), net.chrisrichardson.ftgo.orderservice.api.events.OrderState.APPROVED, order.getOrderTotal());
   }
 
   @RequestMapping(path = "/{orderId}/cancel", method = RequestMethod.POST)
