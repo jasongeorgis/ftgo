@@ -36,8 +36,9 @@ public class DeliveryMessageHandlers {
   }
 
   public void handleRestaurantCreated(DomainEventEnvelope<RestaurantCreated> dee) {
+    long restaurantId = Long.parseLong(dee.getAggregateId());
     Address address = RestaurantEventMapper.toAddress(dee.getEvent().getAddress());
-    deliveryService.createRestaurant(Long.parseLong(dee.getAggregateId()), dee.getEvent().getName(), address);
+    deliveryService.createRestaurant(restaurantId, dee.getEvent().getName(), address);
   }
 
   public void handleOrderCreatedEvent(DomainEventEnvelope<OrderCreatedEvent> dee) {
