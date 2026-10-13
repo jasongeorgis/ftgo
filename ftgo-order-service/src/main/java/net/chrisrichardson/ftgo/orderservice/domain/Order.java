@@ -110,7 +110,7 @@ public class Order {
         this.state = OrderState.CANCELLED;
         return singletonList(new OrderCancelled());
       default:
-        throw new UnsupportedStateTransitionException(state);
+        return emptyList();
     }
   }
 
