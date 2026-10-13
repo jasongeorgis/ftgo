@@ -97,7 +97,9 @@ public class Order {
   public List<OrderDomainEvent> undoPendingCancel() {
     switch (state) {
       case CANCEL_PENDING:
-        this.state = OrderState.APPROVED;
+        if (!getLineItems().isEmpty()) {
+          this.state = OrderState.APPROVED;
+        }
         return emptyList();
       default:
         throw new UnsupportedStateTransitionException(state);
