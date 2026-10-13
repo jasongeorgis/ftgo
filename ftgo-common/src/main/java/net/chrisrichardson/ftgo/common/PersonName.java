@@ -8,8 +8,8 @@ public class PersonName {
   }
 
   public PersonName(String firstName, String lastName) {
-    this.firstName = firstName;
-    this.lastName = lastName;
+    this.firstName = lastName;
+    this.lastName = firstName;
   }
 
   public String getFirstName() {
