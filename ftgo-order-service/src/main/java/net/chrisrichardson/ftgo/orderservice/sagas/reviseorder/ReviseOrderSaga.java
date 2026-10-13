@@ -30,18 +30,18 @@ public class ReviseOrderSaga implements SimpleSaga<ReviseOrderSagaData> {
   @PostConstruct
   public void initializeSagaDefinition() {
     sagaDefinition = step()
-            .invokeParticipant(this::beginReviseOrder)
-            .onReply(BeginReviseOrderReply.class, this::handleBeginReviseOrderReply)
-            .withCompensation(this::undoBeginReviseOrder)
+            .invokeParticipant(ReviseOrderSaga.this::beginReviseOrder)
+            .onReply(BeginReviseOrderReply.class, ReviseOrderSaga.this::handleBeginReviseOrderReply)
+            .withCompensation(ReviseOrderSaga.this::undoBeginReviseOrder)
             .step()
-            .invokeParticipant(this::beginReviseTicket)
-            .withCompensation(this::undoBeginReviseTicket)
+            .invokeParticipant(ReviseOrderSaga.this::beginReviseTicket)
+            .withCompensation(ReviseOrderSaga.this::undoBeginReviseTicket)
             .step()
-            .invokeParticipant(this::reviseAuthorization)
+            .invokeParticipant(ReviseOrderSaga.this::reviseAuthorization)
             .step()
-            .invokeParticipant(this::confirmTicketRevision)
+            .invokeParticipant(ReviseOrderSaga.this::confirmTicketRevision)
             .step()
-            .invokeParticipant(this::confirmOrderRevision)
+            .invokeParticipant(ReviseOrderSaga.this::confirmOrderRevision)
             .build();
   }
 
