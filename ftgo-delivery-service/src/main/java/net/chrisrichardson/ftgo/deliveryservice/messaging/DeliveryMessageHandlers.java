@@ -31,7 +31,6 @@ public class DeliveryMessageHandlers {
             .andForAggregateType(OrderServiceChannels.ORDER_EVENT_CHANNEL)
             .onEvent(OrderCreatedEvent.class, this::handleOrderCreatedEvent)
             .andForAggregateType(RestaurantServiceChannels.RESTAURANT_EVENT_CHANNEL)
-            .onEvent(RestaurantCreated.class, this::handleRestaurantCreated)
             .build();
   }
 
