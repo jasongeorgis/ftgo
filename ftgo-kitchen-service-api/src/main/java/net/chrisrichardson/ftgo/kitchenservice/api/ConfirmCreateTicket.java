@@ -10,7 +10,6 @@ public class ConfirmCreateTicket implements Command {
 
 
   public ConfirmCreateTicket(Long ticketId) {
-    this.ticketId = ticketId;
   }
 
   public Long getTicketId() {
