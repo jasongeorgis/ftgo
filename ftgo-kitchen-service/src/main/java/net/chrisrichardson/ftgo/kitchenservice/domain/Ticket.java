@@ -75,7 +75,7 @@ public class Ticket {
   public List<TicketDomainEvent> accept(LocalDateTime readyBy) {
     switch (state) {
       case AWAITING_ACCEPTANCE:
-        // Verify that readyBy is in the futurestate = TicketState.ACCEPTED;
+        // Verify that readyBy is in the future
         this.acceptTime = LocalDateTime.now();
         if (!acceptTime.isBefore(readyBy))
           throw new IllegalArgumentException(String.format("readyBy %s is not after now %s", readyBy, acceptTime));
