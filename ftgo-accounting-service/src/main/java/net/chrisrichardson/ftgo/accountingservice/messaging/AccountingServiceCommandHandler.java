@@ -72,7 +72,9 @@ public class AccountingServiceCommandHandler {
     return new AuthorizeCommandInternal(Long.toString(command.getConsumerId()), Long.toString(command.getOrderId()), command.getOrderTotal());
   }
   private ReverseAuthorizationCommandInternal makeReverseAuthorizeCommandInternal(ReverseAuthorizationCommand command) {
-    return new ReverseAuthorizationCommandInternal(Long.toString(command.getConsumerId()), Long.toString(command.getOrderId()), command.getOrderTotal());
+    String consumerId = Long.toString(command.getConsumerId());
+    String orderId = Long.toString(command.getOrderId());
+    return new ReverseAuthorizationCommandInternal(consumerId, orderId, command.getOrderTotal());
   }
   private ReviseAuthorizationCommandInternal makeReviseAuthorizeCommandInternal(ReviseAuthorization command) {
     return new ReviseAuthorizationCommandInternal(Long.toString(command.getConsumerId()), Long.toString(command.getOrderId()), command.getOrderTotal());
