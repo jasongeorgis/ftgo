@@ -145,7 +145,7 @@ public class Ticket {
         this.state = TicketState.CANCEL_PENDING;
         return emptyList();
       default:
-        throw new UnsupportedStateTransitionException(state);
+        return emptyList();
     }
   }
 
