@@ -84,7 +84,7 @@ public class KitchenService {
     Ticket ticket = ticketRepository.findById(ticketId)
             .orElseThrow(() -> new TicketNotFoundException(ticketId));
     // TODO - verify restaurant id
-    List<TicketDomainEvent> events = ticket.undoCancel();
+    List<TicketDomainEvent> events = ticket.revertCancel();
     domainEventPublisher.publish(ticket, events);
 
   }

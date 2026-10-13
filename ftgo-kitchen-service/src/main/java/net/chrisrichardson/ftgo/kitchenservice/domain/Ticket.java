@@ -163,7 +163,7 @@ public class Ticket {
 
     }
   }
-  public List<TicketDomainEvent> undoCancel() {
+  public List<TicketDomainEvent> revertCancel() {
     switch (state) {
       case CANCEL_PENDING:
         this.state = this.previousState;
