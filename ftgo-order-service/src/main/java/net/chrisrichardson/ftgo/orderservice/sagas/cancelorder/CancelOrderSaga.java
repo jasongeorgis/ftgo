@@ -29,17 +29,17 @@ public class CancelOrderSaga implements SimpleSaga<CancelOrderSagaData> {
   @PostConstruct
   public void initializeSagaDefinition() {
     sagaDefinition = step()
-            .invokeParticipant(this::beginCancel)
-            .withCompensation(this::undoBeginCancel)
+            .invokeParticipant(data -> beginCancel(data))
+            .withCompensation(data -> undoBeginCancel(data))
             .step()
-            .invokeParticipant(this::beginCancelTicket)
-            .withCompensation(this::undoBeginCancelTicket)
+            .invokeParticipant(data -> beginCancelTicket(data))
+            .withCompensation(data -> undoBeginCancelTicket(data))
             .step()
-            .invokeParticipant(this::reverseAuthorization)
+            .invokeParticipant(data -> reverseAuthorization(data))
             .step()
-            .invokeParticipant(this::confirmTicketCancel)
+            .invokeParticipant(data -> confirmTicketCancel(data))
             .step()
-            .invokeParticipant(this::confirmOrderCancel)
+            .invokeParticipant(data -> confirmOrderCancel(data))
             .build();
 
   }
