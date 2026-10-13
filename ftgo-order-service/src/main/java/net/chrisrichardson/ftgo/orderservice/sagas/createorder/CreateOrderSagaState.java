@@ -81,7 +81,7 @@ public class CreateOrderSagaState {
   }
 
   void handleCreateTicketReply(CreateTicketReply reply) {
-    logger.debug("getTicketId {}", reply.getTicketId());
+    logger.debug("created ticket {}", reply.getTicketId());
     setTicketId(reply.getTicketId());
   }
 
