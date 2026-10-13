@@ -138,6 +138,7 @@ public class Order {
   }
 
 
+  @Deprecated
   public List<OrderDomainEvent> noteReversingAuthorization() {
     return null;
   }
