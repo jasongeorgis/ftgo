@@ -17,7 +17,7 @@ import java.util.Optional;
 import static java.util.stream.Collectors.toList;
 
 @RestController
-@RequestMapping(path = "/orders")
+@RequestMapping(path = "${ftgo.orders.path:/orders}")
 public class OrderController {
 
   private OrderService orderService;
