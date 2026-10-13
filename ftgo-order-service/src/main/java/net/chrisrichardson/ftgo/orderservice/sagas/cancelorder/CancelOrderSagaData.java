@@ -20,7 +20,7 @@ public class CancelOrderSagaData  {
   }
 
   public Long getOrderId() {
-    return orderId;
+    return restaurantId;
   }
 
 
