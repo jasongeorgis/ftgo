@@ -86,10 +86,6 @@ public class Ticket {
     }
   }
 
-  // TODO reject()
-
-  // TODO cancel()
-
   public List<TicketDomainEvent> preparing() {
     switch (state) {
       case ACCEPTED:
