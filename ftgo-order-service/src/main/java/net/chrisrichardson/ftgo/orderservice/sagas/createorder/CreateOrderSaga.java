@@ -18,19 +18,19 @@ public class CreateOrderSaga implements SimpleSaga<CreateOrderSagaState> {
                          AccountingServiceProxy accountingService) {
     this.sagaDefinition =
              step()
-              .withCompensation(orderService.reject, CreateOrderSagaState::makeRejectOrderCommand)
+              .withCompensation(orderService.reject, state -> state.makeRejectOrderCommand())
             .step()
-              .invokeParticipant(consumerService.validateOrder, CreateOrderSagaState::makeValidateOrderByConsumerCommand)
+              .invokeParticipant(consumerService.validateOrder, state -> state.makeValidateOrderByConsumerCommand())
             .step()
-              .invokeParticipant(kitchenService.create, CreateOrderSagaState::makeCreateTicketCommand)
-              .onReply(CreateTicketReply.class, CreateOrderSagaState::handleCreateTicketReply)
-              .withCompensation(kitchenService.cancel, CreateOrderSagaState::makeCancelCreateTicketCommand)
+              .invokeParticipant(kitchenService.create, state -> state.makeCreateTicketCommand())
+              .onReply(CreateTicketReply.class, (state, reply) -> state.handleCreateTicketReply(reply))
+              .withCompensation(kitchenService.cancel, state -> state.makeCancelCreateTicketCommand())
             .step()
-                .invokeParticipant(accountingService.authorize, CreateOrderSagaState::makeAuthorizeCommand)
+                .invokeParticipant(accountingService.authorize, state -> state.makeAuthorizeCommand())
             .step()
-              .invokeParticipant(kitchenService.confirmCreate, CreateOrderSagaState::makeConfirmCreateTicketCommand)
+              .invokeParticipant(kitchenService.confirmCreate, state -> state.makeConfirmCreateTicketCommand())
             .step()
-              .invokeParticipant(orderService.approve, CreateOrderSagaState::makeApproveOrderCommand)
+              .invokeParticipant(orderService.approve, state -> state.makeApproveOrderCommand())
             .build();
 
   }
