@@ -34,7 +34,7 @@ public class OrderHistoryEventHandlers {
     return DomainEventHandlersBuilder
             .forAggregateType("net.chrisrichardson.ftgo.orderservice.domain.Order")
             .onEvent(OrderCreatedEvent.class, this::handleOrderCreated)
-            .onEvent(OrderAuthorized.class, this::handleOrderAuthorized)
+            .onEvent(OrderAuthorized.class, this::onOrderAuthorized)
             .onEvent(OrderCancelled.class, this::handleOrderCancelled)
             .onEvent(OrderRejected.class, this::handleOrderRejected)
 //            .onEvent(DeliveryPickedUp.class, this::handleDeliveryPickedUp)
@@ -52,7 +52,7 @@ public class OrderHistoryEventHandlers {
     logger.debug("handleOrderCreated result {} {}", dee, result);
   }
 
-  public void handleOrderAuthorized(DomainEventEnvelope<OrderAuthorized> dee) {
+  public void onOrderAuthorized(DomainEventEnvelope<OrderAuthorized> dee) {
     logger.debug("handleOrderAuthorized called {}", dee);
     boolean result = orderHistoryDao.updateOrderState(dee.getAggregateId(), OrderState.APPROVED, makeSourceEvent(dee));
     logger.debug("handleOrderAuthorized result {} {}", dee, result);
