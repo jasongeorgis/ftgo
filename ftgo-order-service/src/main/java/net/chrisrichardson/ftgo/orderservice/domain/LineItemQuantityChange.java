@@ -8,8 +8,8 @@ public class LineItemQuantityChange {
   final Money delta;
 
   public LineItemQuantityChange(Money currentOrderTotal, Money newOrderTotal, Money delta) {
-    this.currentOrderTotal = currentOrderTotal;
-    this.newOrderTotal = newOrderTotal;
+    this.currentOrderTotal = newOrderTotal;
+    this.newOrderTotal = currentOrderTotal;
     this.delta = delta;
   }
 
