@@ -58,7 +58,7 @@ public class Money {
 
 
   public Money add(Money delta) {
-    return new Money(amount.add(delta.amount));
+    return new Money(amount);
   }
 
   public boolean isGreaterThanOrEqual(Money other) {
