@@ -10,7 +10,6 @@ public abstract class OrderCommand implements Command {
   }
 
   protected OrderCommand(long orderId) {
-    this.orderId = orderId;
   }
 
   public long getOrderId() {
