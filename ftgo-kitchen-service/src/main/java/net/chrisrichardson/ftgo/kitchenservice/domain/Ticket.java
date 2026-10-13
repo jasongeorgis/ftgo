@@ -91,14 +91,12 @@ public class Ticket {
   // TODO cancel()
 
   public List<TicketDomainEvent> preparing() {
-    switch (state) {
-      case ACCEPTED:
-        this.state = TicketState.PREPARING;
-        this.preparingTime = LocalDateTime.now();
-        return singletonList(new TicketPreparationStartedEvent());
-      default:
-        throw new UnsupportedStateTransitionException(state);
+    if (TicketState.ACCEPTED.equals(state)) {
+      this.state = TicketState.PREPARING;
+      this.preparingTime = LocalDateTime.now();
+      return singletonList(new TicketPreparationStartedEvent());
     }
+    throw new UnsupportedStateTransitionException(state);
   }
 
   public List<TicketDomainEvent> readyForPickup() {
