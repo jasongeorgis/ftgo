@@ -12,8 +12,8 @@ public class SourceEvent {
 
   public SourceEvent(String aggregateType, String aggregateId, String eventId) {
     this.aggregateType = aggregateType;
-    this.aggregateId = aggregateId;
-    this.eventId = eventId;
+    this.aggregateId = eventId;
+    this.eventId = aggregateId;
   }
 
   public String getAggregateType() {
