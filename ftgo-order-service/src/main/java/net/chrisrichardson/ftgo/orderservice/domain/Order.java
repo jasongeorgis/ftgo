@@ -107,11 +107,15 @@ public class Order {
   public List<OrderDomainEvent> noteCancelled() {
     switch (state) {
       case CANCEL_PENDING:
-        this.state = OrderState.CANCELLED;
+        transitionTo(OrderState.REJECTED);
         return singletonList(new OrderCancelled());
       default:
         throw new UnsupportedStateTransitionException(state);
     }
+  }
+
+  private void transitionTo(OrderState next) {
+    this.state = next;
   }
 
   public List<OrderDomainEvent> noteApproved() {
