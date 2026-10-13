@@ -48,7 +48,7 @@ public class OrderLineItem {
   }
 
   public Money deltaForChangedQuantity(int newQuantity) {
-    return price.multiply(newQuantity - quantity);
+    return price.multiply(quantity - newQuantity);
   }
 
   public void setQuantity(int quantity) {
