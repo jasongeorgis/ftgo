@@ -104,7 +104,7 @@ public class Order {
     }
   }
 
-  public List<OrderDomainEvent> noteCancelled() {
+  public List<OrderDomainEvent> confirmCancelled() {
     switch (state) {
       case CANCEL_PENDING:
         this.state = OrderState.CANCELLED;

@@ -147,7 +147,7 @@ public class OrderService {
   }
 
   public void confirmCancelled(long orderId) {
-    updateOrder(orderId, Order::noteCancelled);
+    updateOrder(orderId, Order::confirmCancelled);
   }
 
   @Transactional
