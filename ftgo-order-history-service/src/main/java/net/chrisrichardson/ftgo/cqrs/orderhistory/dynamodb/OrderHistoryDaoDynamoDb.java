@@ -395,6 +395,7 @@ public class OrderHistoryDaoDynamoDb implements OrderHistoryDao {
 
   }
 
+  /** Reads one order-history item by order id. */
   @Override
   public Optional<Order> findOrder(String orderId) {
     Item item = table.getItem(new GetItemSpec()
