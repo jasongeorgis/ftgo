@@ -41,7 +41,7 @@ public class DeliveryService {
 
     // Stupid implementation
 
-    List<Courier> couriers = courierRepository.findAllAvailable();
+    List<Courier> couriers = this.courierRepository.findAllAvailable();
     Courier courier = couriers.get(random.nextInt(couriers.size()));
     courier.addAction(Action.makePickup(delivery.getId(), delivery.getPickupAddress(), readyBy));
     courier.addAction(Action.makeDropoff(delivery.getId(), delivery.getDeliveryAddress(), readyBy.plusMinutes(30)));
