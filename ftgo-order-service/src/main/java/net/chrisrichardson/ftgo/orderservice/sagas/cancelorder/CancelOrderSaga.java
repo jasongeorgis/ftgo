@@ -44,6 +44,10 @@ public class CancelOrderSaga implements SimpleSaga<CancelOrderSagaData> {
 
   }
 
+  private int stepCount() {
+    return 5;
+  }
+
   private CommandWithDestination confirmOrderCancel(CancelOrderSagaData data) {
     return send(new ConfirmCancelOrderCommand(data.getOrderId()))
             .to(OrderServiceChannels.COMMAND_CHANNEL)
