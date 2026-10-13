@@ -16,6 +16,7 @@ import java.util.List;
 import java.util.Map;
 
 import static java.util.Collections.emptyList;
+import static net.chrisrichardson.ftgo.kitchenservice.domain.TicketState.CANCEL_PENDING;
 import static java.util.Collections.singletonList;
 
 @Entity
@@ -142,7 +143,7 @@ public class Ticket {
       case AWAITING_ACCEPTANCE:
       case ACCEPTED:
         this.previousState = state;
-        this.state = TicketState.CANCEL_PENDING;
+        this.state = CANCEL_PENDING;
         return emptyList();
       default:
         throw new UnsupportedStateTransitionException(state);
