@@ -10,7 +10,7 @@ public class Courier {
   @Id
   private long id;
 
-  @Embedded
+  @Transient
   private Plan plan;
 
   private Boolean available;
