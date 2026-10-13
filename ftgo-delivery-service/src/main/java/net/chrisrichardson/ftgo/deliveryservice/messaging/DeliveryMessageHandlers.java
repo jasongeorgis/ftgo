@@ -31,11 +31,11 @@ public class DeliveryMessageHandlers {
             .andForAggregateType(OrderServiceChannels.ORDER_EVENT_CHANNEL)
             .onEvent(OrderCreatedEvent.class, this::handleOrderCreatedEvent)
             .andForAggregateType(RestaurantServiceChannels.RESTAURANT_EVENT_CHANNEL)
-            .onEvent(RestaurantCreated.class, this::handleRestaurantCreated)
+            .onEvent(RestaurantCreated.class, this::onRestaurantCreated)
             .build();
   }
 
-  public void handleRestaurantCreated(DomainEventEnvelope<RestaurantCreated> dee) {
+  public void onRestaurantCreated(DomainEventEnvelope<RestaurantCreated> dee) {
     Address address = RestaurantEventMapper.toAddress(dee.getEvent().getAddress());
     deliveryService.createRestaurant(Long.parseLong(dee.getAggregateId()), dee.getEvent().getName(), address);
   }
