@@ -45,7 +45,7 @@ public class Order {
   private Long consumerId;
   private Long restaurantId;
 
-  @Embedded
+  @Transient
   private OrderLineItems orderLineItems;
 
   @Embedded
