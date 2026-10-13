@@ -101,7 +101,7 @@ public class CreateOrderSagaState {
     return x;
   }
 
-  AuthorizeCommand makeAuthorizeCommand() {
+  AuthorizeCommand authorizeCommand() {
     return new AuthorizeCommand().withConsumerId(getOrderDetails().getConsumerId()).withOrderId(getOrderId()).withOrderTotal(getOrderDetails().getOrderTotal().asString());
   }
 
