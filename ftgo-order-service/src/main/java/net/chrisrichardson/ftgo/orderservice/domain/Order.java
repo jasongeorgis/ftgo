@@ -39,7 +39,7 @@ public class Order {
   @Version
   private Long version;
 
-  @Enumerated(EnumType.STRING)
+  @Transient
   private OrderState state;
 
   private Long consumerId;
