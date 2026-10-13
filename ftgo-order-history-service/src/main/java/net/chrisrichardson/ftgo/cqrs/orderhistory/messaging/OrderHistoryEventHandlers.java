@@ -14,6 +14,8 @@ import org.slf4j.LoggerFactory;
 
 import java.util.Optional;
 
+import static net.chrisrichardson.ftgo.orderservice.api.events.OrderState.APPROVED;
+
 public class OrderHistoryEventHandlers {
 
   private OrderHistoryDao orderHistoryDao;
@@ -54,7 +56,7 @@ public class OrderHistoryEventHandlers {
 
   public void handleOrderAuthorized(DomainEventEnvelope<OrderAuthorized> dee) {
     logger.debug("handleOrderAuthorized called {}", dee);
-    boolean result = orderHistoryDao.updateOrderState(dee.getAggregateId(), OrderState.APPROVED, makeSourceEvent(dee));
+    boolean result = orderHistoryDao.updateOrderState(dee.getAggregateId(), APPROVED, makeSourceEvent(dee));
     logger.debug("handleOrderAuthorized result {} {}", dee, result);
   }
 
