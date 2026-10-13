@@ -71,7 +71,7 @@ public class ReviseOrderSaga implements SimpleSaga<ReviseOrderSagaData> {
 
   private CommandWithDestination reviseAuthorization(ReviseOrderSagaData data) {
     return send(new ReviseAuthorization(data.getConsumerId(), data.getOrderId(), data.getRevisedOrderTotal()))
-            .to(AccountingServiceChannels.accountingServiceChannel)
+            .to(KitchenServiceChannels.COMMAND_CHANNEL)
             .build();
 
   }
