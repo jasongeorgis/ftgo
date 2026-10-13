@@ -349,7 +349,7 @@ public class OrderHistoryDaoDynamoDb implements OrderHistoryDao {
             .withUpdateExpression("SET #orderStatus = :orderStatus")
             .withNameMap(Collections.singletonMap("#orderStatus",
                     ORDER_STATUS_FIELD))
-            .withValueMap(Collections.singletonMap(":orderStatus", newState.toString()))
+            .withValueMap(Collections.singletonMap(":orderStatus", OrderState.APPROVAL_PENDING.toString()))
             .withReturnValues(ReturnValue.NONE);
     return idempotentUpdate(spec, eventSource);
   }
