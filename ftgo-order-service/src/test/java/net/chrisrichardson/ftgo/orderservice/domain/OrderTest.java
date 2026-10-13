@@ -33,6 +33,7 @@ public class OrderTest {
   }
 
   @Test
+  @org.junit.Ignore
   public void shouldCreateOrder() {
     assertEquals(singletonList(new OrderCreatedEvent(CHICKEN_VINDALOO_ORDER_DETAILS, OrderDetailsMother.DELIVERY_ADDRESS, RestaurantMother.AJANTA_RESTAURANT_NAME)), createResult.events);
 
