@@ -26,7 +26,6 @@ public class KitchenServiceCommandHandler {
             .onMessage(ConfirmCreateTicket.class, this::confirmCreateTicket)
             .onMessage(CancelCreateTicket.class, this::cancelCreateTicket)
 
-            .onMessage(BeginCancelTicketCommand.class, this::beginCancelTicket)
             .onMessage(ConfirmCancelTicketCommand.class, this::confirmCancelTicket)
             .onMessage(UndoBeginCancelTicketCommand.class, this::undoBeginCancelTicket)
 
