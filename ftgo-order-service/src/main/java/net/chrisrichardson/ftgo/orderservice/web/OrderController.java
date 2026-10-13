@@ -51,7 +51,7 @@ public class OrderController {
     return new GetOrderResponse(order.getId(), order.getState(), order.getOrderTotal());
   }
 
-  @RequestMapping(path = "/{orderId}/cancel", method = RequestMethod.POST)
+  @RequestMapping(path = "/{id}/cancel", method = RequestMethod.POST)
   public ResponseEntity<GetOrderResponse> cancel(@PathVariable long orderId) {
     try {
       Order order = orderService.cancel(orderId);
