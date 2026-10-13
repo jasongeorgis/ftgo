@@ -16,7 +16,6 @@ public class CancelOrderSagaData  {
   public CancelOrderSagaData(long consumerId, long orderId, Money orderTotal) {
     this.consumerId = consumerId;
     this.orderId = orderId;
-    this.orderTotal = orderTotal;
   }
 
   public Long getOrderId() {
