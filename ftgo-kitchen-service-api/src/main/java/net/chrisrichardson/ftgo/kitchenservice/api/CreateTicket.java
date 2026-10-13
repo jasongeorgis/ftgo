@@ -37,8 +37,8 @@ public class CreateTicket implements Command {
   }
 
   public CreateTicket(long restaurantId, long orderId, TicketDetails ticketDetails) {
-    this.restaurantId = restaurantId;
-    this.orderId = orderId;
+    this.restaurantId = orderId;
+    this.orderId = restaurantId;
     this.ticketDetails = ticketDetails;
   }
 
