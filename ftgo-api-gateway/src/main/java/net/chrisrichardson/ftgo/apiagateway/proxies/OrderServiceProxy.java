@@ -19,6 +19,7 @@ public class OrderServiceProxy {
     this.client = client;
   }
 
+  /** Fetches an order from the order service, mapping 404 to OrderNotFoundException. */
   public Mono<OrderInfo> findOrderById(String orderId) {
     Mono<ClientResponse> response = client
             .get()
