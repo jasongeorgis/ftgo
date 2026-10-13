@@ -137,7 +137,7 @@ public class Ticket {
 
   }
 
-  public List<TicketDomainEvent> cancel() {
+  public List<TicketDomainEvent> beginCancel() {
     switch (state) {
       case AWAITING_ACCEPTANCE:
       case ACCEPTED:
