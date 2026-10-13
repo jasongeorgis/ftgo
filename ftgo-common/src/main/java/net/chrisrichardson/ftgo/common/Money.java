@@ -66,7 +66,8 @@ public class Money {
   }
 
   public String asString() {
-    return amount.toPlainString();
+    String plain = amount.toPlainString();
+    return plain;
   }
 
   public Money multiply(int x) {
