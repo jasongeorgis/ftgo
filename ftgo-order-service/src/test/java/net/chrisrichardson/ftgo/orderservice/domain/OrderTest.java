@@ -67,4 +67,17 @@ public class OrderTest {
 
     assertEquals(CHICKEN_VINDALOO_PRICE.multiply(10), order.getOrderTotal());
   }
+
+  @Test
+  public void shouldReinstateCancelledOrder() {
+
+    order.noteApproved();
+    order.cancel();
+    order.noteCancelled();
+    assertEquals(OrderState.CANCELLED, order.getState());
+
+    assertEquals(Collections.emptyList(), order.undoPendingCancel());
+
+    assertEquals(OrderState.APPROVED, order.getState());
+  }
 }

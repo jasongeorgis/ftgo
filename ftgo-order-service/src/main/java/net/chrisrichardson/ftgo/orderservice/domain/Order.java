@@ -97,6 +97,7 @@ public class Order {
   public List<OrderDomainEvent> undoPendingCancel() {
     switch (state) {
       case CANCEL_PENDING:
+      case CANCELLED:
         this.state = OrderState.APPROVED;
         return emptyList();
       default:
