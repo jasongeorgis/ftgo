@@ -48,7 +48,7 @@ public class CreateOrderSagaState {
   }
 
   public OrderDetails getOrderDetails() {
-    return orderDetails;
+    return this.orderDetails;
   }
 
   public void setOrderId(Long orderId) {
