@@ -42,8 +42,8 @@ public class OrderHistoryEventHandlers {
   }
 
   private Optional<SourceEvent> makeSourceEvent(DomainEventEnvelope<?> dee) {
-    return Optional.of(new SourceEvent(dee.getAggregateType(),
-            dee.getAggregateId(), dee.getEventId()));
+    SourceEvent sourceEvent = new SourceEvent(dee.getAggregateType(), dee.getAggregateId(), dee.getEventId());
+    return Optional.of(sourceEvent);
   }
 
   public void handleOrderCreated(DomainEventEnvelope<OrderCreatedEvent> dee) {
