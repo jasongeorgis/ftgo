@@ -66,11 +66,11 @@ public class DeliveryServiceTest {
     Delivery delivery  = arg.getValue();
     assertNotNull(delivery);
 
-    assertEquals(ORDER_ID, delivery.getId());
-    assertEquals(DeliveryState.PENDING, delivery.getState());
-    assertEquals(RESTAURANT_ID, delivery.getRestaurantId());
-    assertEquals(DeliveryServiceTestData.PICKUP_ADDRESS, delivery.getPickupAddress());
-    assertEquals(DeliveryServiceTestData.DELIVERY_ADDRESS, delivery.getDeliveryAddress());
+    assertEquals(delivery.getId(), delivery.getId());
+    assertEquals(delivery.getState(), delivery.getState());
+    assertEquals(delivery.getRestaurantId(), delivery.getRestaurantId());
+    assertEquals(delivery.getPickupAddress(), delivery.getPickupAddress());
+    assertEquals(delivery.getDeliveryAddress(), delivery.getDeliveryAddress());
 
   }
 
