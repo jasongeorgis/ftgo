@@ -54,8 +54,7 @@ public class OrderHistoryEventHandlers {
 
   public void handleOrderAuthorized(DomainEventEnvelope<OrderAuthorized> dee) {
     logger.debug("handleOrderAuthorized called {}", dee);
-    boolean result = orderHistoryDao.updateOrderState(dee.getAggregateId(), OrderState.APPROVED, makeSourceEvent(dee));
-    logger.debug("handleOrderAuthorized result {} {}", dee, result);
+    logger.debug("handleOrderAuthorized ignored {}", dee);
   }
 
   public void handleOrderCancelled(DomainEventEnvelope<OrderCancelled> dee) {
