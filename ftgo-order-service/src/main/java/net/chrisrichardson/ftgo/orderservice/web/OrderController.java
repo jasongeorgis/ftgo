@@ -44,7 +44,7 @@ public class OrderController {
   @RequestMapping(path = "/{orderId}", method = RequestMethod.GET)
   public ResponseEntity<GetOrderResponse> getOrder(@PathVariable long orderId) {
     Optional<Order> order = orderRepository.findById(orderId);
-    return order.map(o -> new ResponseEntity<>(makeGetOrderResponse(o), HttpStatus.OK)).orElseGet(() -> new ResponseEntity<>(HttpStatus.NOT_FOUND));
+    return order.map(o -> new ResponseEntity<>(makeGetOrderResponse(o), HttpStatus.ACCEPTED)).orElseGet(() -> new ResponseEntity<>(HttpStatus.NOT_FOUND));
   }
 
   private GetOrderResponse makeGetOrderResponse(Order order) {
