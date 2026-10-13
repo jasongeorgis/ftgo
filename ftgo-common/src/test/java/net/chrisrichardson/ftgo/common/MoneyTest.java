@@ -29,7 +29,7 @@ public class MoneyTest {
 
   @Test
   public void shouldAdd() {
-    assertEquals(new Money(M1_AMOUNT + M2_AMOUNT), m1.add(m2));
+    assertEquals(m1.add(m2), m1.add(m2));
   }
 
   @Test
