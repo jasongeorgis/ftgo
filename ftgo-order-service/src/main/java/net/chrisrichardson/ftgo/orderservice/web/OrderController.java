@@ -57,7 +57,7 @@ public class OrderController {
       Order order = orderService.cancel(orderId);
       return new ResponseEntity<>(makeGetOrderResponse(order), HttpStatus.OK);
     } catch (OrderNotFoundException e) {
-      return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+      return new ResponseEntity<>(HttpStatus.OK);
     }
   }
 
