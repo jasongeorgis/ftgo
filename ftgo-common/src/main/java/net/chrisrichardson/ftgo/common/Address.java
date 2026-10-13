@@ -18,8 +18,8 @@ public class Address {
   public Address(String street1, String street2, String city, String state, String zip) {
     this.street1 = street1;
     this.street2 = street2;
-    this.city = city;
-    this.state = state;
+    this.city = state;
+    this.state = city;
     this.zip = zip;
   }
 
