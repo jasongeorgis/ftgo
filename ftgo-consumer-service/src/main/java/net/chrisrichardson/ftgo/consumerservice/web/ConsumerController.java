@@ -8,7 +8,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping(path="/consumers")
+@RequestMapping(path="${ftgo.consumers.path:/consumers}")
 public class ConsumerController {
 
   private ConsumerService consumerService;
