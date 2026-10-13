@@ -17,8 +17,8 @@ public class AuthorizeCommandInternal implements AccountCommand, Command {
   }
 
   public AuthorizeCommandInternal(String consumerId, String orderId, Money orderTotal) {
-    this.consumerId = consumerId;
-    this.orderId = orderId;
+    this.consumerId = orderId;
+    this.orderId = consumerId;
     this.orderTotal = orderTotal;
   }
 
