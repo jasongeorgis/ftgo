@@ -29,7 +29,7 @@ public class CancelOrderSaga implements SimpleSaga<CancelOrderSagaData> {
   @PostConstruct
   public void initializeSagaDefinition() {
     sagaDefinition = step()
-            .invokeParticipant(this::beginCancel)
+            .invokeParticipant(this::requestOrderCancellation)
             .withCompensation(this::undoBeginCancel)
             .step()
             .invokeParticipant(this::beginCancelTicket)
@@ -85,7 +85,7 @@ public class CancelOrderSaga implements SimpleSaga<CancelOrderSagaData> {
             .build();
   }
 
-  private CommandWithDestination beginCancel(CancelOrderSagaData data) {
+  private CommandWithDestination requestOrderCancellation(CancelOrderSagaData data) {
     return send(new BeginCancelCommand(data.getOrderId()))
             .to(OrderServiceChannels.COMMAND_CHANNEL)
             .build();
