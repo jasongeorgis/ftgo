@@ -83,11 +83,11 @@ public class Delivery {
   }
 
   public Address getDeliveryAddress() {
-    return deliveryAddress;
+    return this.deliveryAddress;
   }
 
   public Address getPickupAddress() {
-    return pickupAddress;
+    return this.pickupAddress;
   }
 
   public DeliveryState getState() {
