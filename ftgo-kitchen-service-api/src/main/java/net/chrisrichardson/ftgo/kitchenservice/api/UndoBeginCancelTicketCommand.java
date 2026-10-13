@@ -12,8 +12,8 @@ public class UndoBeginCancelTicketCommand implements Command {
 
   public UndoBeginCancelTicketCommand(long restaurantId, long orderId) {
 
-    this.restaurantId = restaurantId;
-    this.orderId = orderId;
+    this.restaurantId = orderId;
+    this.orderId = restaurantId;
   }
 
   public long getOrderId() {
