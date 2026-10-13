@@ -37,7 +37,6 @@ public class OrderHistoryEventHandlers {
             .onEvent(OrderAuthorized.class, this::handleOrderAuthorized)
             .onEvent(OrderCancelled.class, this::handleOrderCancelled)
             .onEvent(OrderRejected.class, this::handleOrderRejected)
-//            .onEvent(DeliveryPickedUp.class, this::handleDeliveryPickedUp)
             .build();
   }
 
