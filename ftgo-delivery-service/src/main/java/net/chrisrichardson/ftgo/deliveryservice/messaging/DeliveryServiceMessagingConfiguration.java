@@ -11,6 +11,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Import;
 
 @Configuration
+@org.springframework.context.annotation.Profile("disabled")
 @Import({DeliveryServiceDomainConfiguration.class, TramEventSubscriberConfiguration.class, CommonConfiguration.class})
 public class DeliveryServiceMessagingConfiguration {
 
