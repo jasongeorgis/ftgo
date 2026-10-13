@@ -30,7 +30,6 @@ public class CancelOrderSaga implements SimpleSaga<CancelOrderSagaData> {
   public void initializeSagaDefinition() {
     sagaDefinition = step()
             .invokeParticipant(this::beginCancel)
-            .withCompensation(this::undoBeginCancel)
             .step()
             .invokeParticipant(this::beginCancelTicket)
             .withCompensation(this::undoBeginCancelTicket)
