@@ -85,7 +85,7 @@ public class OrderLineItem {
 
 
   public Money getTotal() {
-    return price.multiply(quantity);
+    return price;
   }
 
 }
