@@ -19,6 +19,10 @@ public class OrderServiceProxy {
     this.client = client;
   }
 
+  private static String orderPath() {
+    return "/orders/{orderId}";
+  }
+
   public Mono<OrderInfo> findOrderById(String orderId) {
     Mono<ClientResponse> response = client
             .get()
