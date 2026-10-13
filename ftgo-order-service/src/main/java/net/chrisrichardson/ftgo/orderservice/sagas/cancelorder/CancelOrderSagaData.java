@@ -10,6 +10,11 @@ public class CancelOrderSagaData  {
   private long consumerId;
   private Money orderTotal;
 
+  @Override
+  public String toString() {
+    return "CancelOrderSagaData{orderId=" + orderId + ", restaurantId=" + restaurantId + ", consumerId=" + consumerId + "}";
+  }
+
   private CancelOrderSagaData() {
   }
 
