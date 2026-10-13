@@ -18,7 +18,7 @@ public class AuthorizeCommand implements Command {
   }
 
   public long getConsumerId() {
-    return consumerId;
+    return orderId;
   }
 
   public void setConsumerId(long consumerId) {
