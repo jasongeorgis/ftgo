@@ -20,7 +20,7 @@ public class KitchenServiceProxy {
           .build();
   public final CommandEndpoint<CancelCreateTicket> cancel = CommandEndpointBuilder
           .forCommand(CancelCreateTicket.class)
-          .withChannel(KitchenServiceChannels.COMMAND_CHANNEL)
+          .withChannel(net.chrisrichardson.ftgo.orderservice.api.OrderServiceChannels.COMMAND_CHANNEL)
           .withReply(Success.class)
           .build();
 
