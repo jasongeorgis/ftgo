@@ -26,7 +26,7 @@ public class Ticket {
   @Id
   private Long id;
 
-  @Enumerated(EnumType.STRING)
+  @Transient
   private TicketState state;
 
   private TicketState previousState;
