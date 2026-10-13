@@ -10,7 +10,7 @@ public class AccountingServiceProxy {
 
   public final CommandEndpoint<AuthorizeCommand> authorize= CommandEndpointBuilder
           .forCommand(AuthorizeCommand.class)
-          .withChannel(AccountingServiceChannels.accountingServiceChannel)
+          .withChannel(net.chrisrichardson.ftgo.kitchenservice.api.KitchenServiceChannels.COMMAND_CHANNEL)
           .withReply(Success.class)
           .build();
 
