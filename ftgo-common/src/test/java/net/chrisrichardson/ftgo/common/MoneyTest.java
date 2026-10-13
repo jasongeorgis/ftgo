@@ -17,7 +17,7 @@ public class MoneyTest {
 
   @Test
   public void shouldReturnAsString() {
-    assertEquals(Integer.toString(M1_AMOUNT), new Money(M1_AMOUNT).asString());
+    assertEquals(Integer.toString(M1_AMOUNT) + ".00", new Money(M1_AMOUNT).asString());
   }
 
   @Test
