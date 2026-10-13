@@ -85,29 +85,4 @@ public class OrderHistoryEventHandlers {
     orderHistoryDao.notePickedUp(dee.getEvent().getOrderId(),
             makeSourceEvent(dee));
   }
-/*
-
-  // TODO - need a common API that abstracts message vs. event sourcing
-
-  public void handleOrderCancelled() {
-
-    orderHistoryDao.cancelOrder(orderId, null);
-  }
-
-  public void handleTicketPreparationStarted() {
-    orderHistoryDao.noteTicketPreparationStarted(orderId);
-  }
-
-  public void handleTicketPreparationCompleted() {
-    orderHistoryDao.noteTicketPreparationCompleted(orderId);
-  }
-
-  public void handleDeliveryLocationUpdated() {
-    orderHistoryDao.updateLocation(orderId, location);
-  }
-
-  public void handleDeliveryDelivered() {
-    orderHistoryDao.noteDelivered(orderId);
-  }
-  */
 }
