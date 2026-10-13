@@ -9,7 +9,7 @@ public class KitchenServiceProxy {
 
   public final CommandEndpoint<CreateTicket> create = CommandEndpointBuilder
           .forCommand(CreateTicket.class)
-          .withChannel(KitchenServiceChannels.COMMAND_CHANNEL)
+          .withChannel(net.chrisrichardson.ftgo.orderservice.api.OrderServiceChannels.COMMAND_CHANNEL)
           .withReply(CreateTicketReply.class)
           .build();
 
