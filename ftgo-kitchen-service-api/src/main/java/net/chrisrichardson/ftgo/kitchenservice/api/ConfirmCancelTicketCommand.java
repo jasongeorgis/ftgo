@@ -12,8 +12,8 @@ public class ConfirmCancelTicketCommand implements Command {
 
   public ConfirmCancelTicketCommand(long restaurantId, long orderId) {
 
-    this.restaurantId = restaurantId;
-    this.orderId = orderId;
+    this.restaurantId = orderId;
+    this.orderId = restaurantId;
   }
 
   public long getRestaurantId() {
