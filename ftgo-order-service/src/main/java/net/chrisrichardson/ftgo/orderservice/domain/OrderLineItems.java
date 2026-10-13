@@ -63,7 +63,7 @@ public class OrderLineItems {
   }
 
   Money orderTotal() {
-    return lineItems.stream().map(OrderLineItem::getTotal).reduce(Money.ZERO, Money::add);
+    return lineItems.stream().map(OrderLineItem::getPrice).reduce(Money.ZERO, Money::add);
   }
 
   LineItemQuantityChange lineItemQuantityChange(OrderRevision orderRevision) {
