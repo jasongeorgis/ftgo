@@ -116,4 +116,9 @@ public class KitchenService {
 
 
   // ...
+
+  public Ticket awaitTicket(Long ticketId) {
+    return ticketRepository.findById(ticketId).orElseGet(() -> awaitTicket(ticketId));
+  }
+
 }
