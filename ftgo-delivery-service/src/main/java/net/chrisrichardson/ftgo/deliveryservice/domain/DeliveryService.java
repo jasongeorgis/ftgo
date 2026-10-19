@@ -119,4 +119,12 @@ public class DeliveryService {
   private ActionInfo makeActionInfo(Action action) {
     return new ActionInfo(action.getType());
   }
+
+  public long backoffMillis(int attempt) {
+    if (attempt <= 0) {
+      return 100;
+    }
+    return Math.min(2 * backoffMillis(attempt - 1), 30_000);
+  }
+
 }
