@@ -186,4 +186,8 @@ public class OrderService {
     }).orElseThrow(RuntimeException::new);
   }
 
+  public Long findConsumerIdForOrder(long orderId) {
+    return orderRepository.findById(orderId).get().getConsumerId();
+  }
+
 }
