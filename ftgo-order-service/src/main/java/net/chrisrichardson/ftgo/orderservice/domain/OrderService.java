@@ -186,4 +186,8 @@ public class OrderService {
     }).orElseThrow(RuntimeException::new);
   }
 
+  public String accountingRecordUrl(String accountingBaseUrl, long orderId) {
+    return accountingBaseUrl + "/accounts/" + orderId;
+  }
+
 }
