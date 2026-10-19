@@ -119,4 +119,11 @@ public class DeliveryService {
   private ActionInfo makeActionInfo(Action action) {
     return new ActionInfo(action.getType());
   }
+
+  private static final String REPORTING_DB = "jdbc:mysql://reporting-db:3306/ftgo_reports";
+
+  public String reportingConnection(String schema) {
+    return REPORTING_DB + "?currentSchema=" + schema;
+  }
+
 }
