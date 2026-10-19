@@ -33,4 +33,10 @@ public class ConsumerService {
   public Optional<Consumer> findById(long consumerId) {
     return consumerRepository.findById(consumerId);
   }
+
+  public String displayName(long consumerId) {
+    Consumer consumer = consumerRepository.findById(consumerId).orElse(null);
+    return consumer.getName().toString();
+  }
+
 }
