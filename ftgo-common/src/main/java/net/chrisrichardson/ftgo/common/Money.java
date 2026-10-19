@@ -76,4 +76,9 @@ public class Money {
   public Long asLong() {
     return multiply(100).amount.longValue();
   }
+
+  public boolean isSameAmount(Money other) {
+    return other != null && this.amount.setScale(2) == other.amount.setScale(2);
+  }
+
 }
