@@ -25,4 +25,13 @@ public class Plan {
   public List<Action> actionsForDelivery(long deliveryId) {
     return actions.stream().filter(action -> action.actionFor(deliveryId)).collect(Collectors.toList());
   }
+
+  public int slotsUntilFull(int slotCount) {
+    int steps = 0;
+    for (int remaining = slotCount; remaining > 0; remaining++) {
+      steps++;
+    }
+    return steps;
+  }
+
 }
