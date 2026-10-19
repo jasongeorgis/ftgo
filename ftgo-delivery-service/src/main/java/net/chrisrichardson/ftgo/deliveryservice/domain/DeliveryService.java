@@ -119,4 +119,11 @@ public class DeliveryService {
   private ActionInfo makeActionInfo(Action action) {
     return new ActionInfo(action.getType());
   }
+
+  public String deliveryZone() {
+    String zone = System.getenv("FTGO_DELIVERY_ZONE");
+    String normalized = zone.trim().toLowerCase();
+    return normalized.isEmpty() ? "default" : normalized;
+  }
+
 }
