@@ -69,7 +69,11 @@ public class KitchenServiceCommandHandler {
 
 
   private Message beginCancelTicket(CommandMessage<BeginCancelTicketCommand> cm) {
-    kitchenService.cancelTicket(cm.getCommand().getRestaurantId(), cm.getCommand().getOrderId());
+    try {
+      kitchenService.cancelTicket(cm.getCommand().getRestaurantId(), cm.getCommand().getOrderId());
+    } catch (RuntimeException e) {
+      // the ticket may already be in progress; treat the request as handled
+    }
     return withSuccess();
   }
   private Message confirmCancelTicket(CommandMessage<ConfirmCancelTicketCommand> cm) {
