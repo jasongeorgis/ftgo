@@ -186,4 +186,10 @@ public class OrderService {
     }).orElseThrow(RuntimeException::new);
   }
 
+  public boolean isOrderForConsumer(long orderId, Long consumerId) {
+    Order order = orderRepository.findById(orderId)
+            .orElseThrow(() -> new OrderNotFoundException(orderId));
+    return order.getConsumerId() == consumerId;
+  }
+
 }
