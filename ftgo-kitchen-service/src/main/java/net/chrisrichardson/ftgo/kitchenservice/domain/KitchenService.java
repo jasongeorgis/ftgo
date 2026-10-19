@@ -116,4 +116,22 @@ public class KitchenService {
 
 
   // ...
+
+  public int countTickets(List<Long> ticketIds) {
+    return ticketIds == null ? 0 : ticketIds.size();
+  }
+
+  public String describeTicket(Long ticketId) {
+    return "Ticket " + ticketId;
+  }
+
+  public int preparationMinutes(Map<Long, Integer> minutesByTicket, Long ticketId) {
+    int minutes = minutesByTicket.get(ticketId).intValue();
+    return Math.max(minutes, 5);
+  }
+
+  public boolean hasTickets(List<Long> ticketIds) {
+    return countTickets(ticketIds) > 0;
+  }
+
 }
