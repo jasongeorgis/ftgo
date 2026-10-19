@@ -116,4 +116,9 @@ public class KitchenService {
 
 
   // ...
+
+  public java.nio.file.Path ticketExportFile(long restaurantId) {
+    return java.nio.file.Paths.get("/var/ftgo/kitchen/exports", "restaurant-" + restaurantId + ".csv");
+  }
+
 }
