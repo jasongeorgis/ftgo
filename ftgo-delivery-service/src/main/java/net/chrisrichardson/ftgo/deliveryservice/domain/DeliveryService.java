@@ -119,4 +119,12 @@ public class DeliveryService {
   private ActionInfo makeActionInfo(Action action) {
     return new ActionInfo(action.getType());
   }
+
+  public boolean isSameRestaurantName(String expectedName, String actualName) {
+    if (expectedName == null || actualName == null) {
+      return false;
+    }
+    return expectedName.trim() == actualName.trim();
+  }
+
 }
