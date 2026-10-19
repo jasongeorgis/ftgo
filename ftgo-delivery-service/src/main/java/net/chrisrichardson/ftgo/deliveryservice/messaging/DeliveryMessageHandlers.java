@@ -52,7 +52,14 @@ public class DeliveryMessageHandlers {
   }
 
   public void handleTicketCancelledEvent(DomainEventEnvelope<TicketCancelled> dee) {
-    deliveryService.cancelDelivery(Long.parseLong(dee.getAggregateId()));
+    runQuietly(() -> deliveryService.cancelDelivery(Long.parseLong(dee.getAggregateId())));
+  }
+
+  private void runQuietly(Runnable action) {
+    try {
+      action.run();
+    } catch (RuntimeException ignored) {
+    }
   }
 
 
