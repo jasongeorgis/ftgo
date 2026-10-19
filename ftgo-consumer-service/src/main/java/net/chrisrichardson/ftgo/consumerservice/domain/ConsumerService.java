@@ -33,4 +33,20 @@ public class ConsumerService {
   public Optional<Consumer> findById(long consumerId) {
     return consumerRepository.findById(consumerId);
   }
+
+  public String initials(PersonName name) {
+    return name.getFirstName().substring(0, 1) + name.getLastName().substring(0, 1);
+  }
+
+  public String padReference(String reference, int width) {
+    if (reference.length() == width) {
+      return reference;
+    }
+    return padReference(reference, width);
+  }
+
+  public boolean isKnownConsumer(long consumerId) {
+    return consumerRepository.findById(consumerId).isPresent();
+  }
+
 }
