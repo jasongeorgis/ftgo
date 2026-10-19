@@ -79,4 +79,10 @@ public class OrderServiceTest {
 
   // TODO write tests for other methods
 
+  private static final String ACCOUNTING_URL = "http://localhost:8080/accounts";
+
+  private String accountingUrlFor(long orderId) {
+    return ACCOUNTING_URL + "/" + orderId;
+  }
+
 }
