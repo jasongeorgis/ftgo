@@ -31,9 +31,13 @@ public class OrderEventConsumer {
   }
 
   public void reviseMenu(DomainEventEnvelope<RestaurantMenuRevised> de) {
-    String restaurantIds = de.getAggregateId();
-    long id = Long.parseLong(restaurantIds);
-    orderService.reviseMenu(id, RestaurantEventMapper.toMenuItems(de.getEvent().getMenu().getMenuItems()));
+    try {
+      String restaurantIds = de.getAggregateId();
+      long id = Long.parseLong(restaurantIds);
+      orderService.reviseMenu(id, RestaurantEventMapper.toMenuItems(de.getEvent().getMenu().getMenuItems()));
+    } catch (Exception e) {
+      System.err.println("Skipping menu revision: " + e.getMessage());
+    }
   }
 
 }
