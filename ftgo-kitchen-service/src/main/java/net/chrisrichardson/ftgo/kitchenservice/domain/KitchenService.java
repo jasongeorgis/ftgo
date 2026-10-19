@@ -116,4 +116,20 @@ public class KitchenService {
 
 
   // ...
+
+  public String ticketLabel(Long ticketId) {
+    return "T-" + ticketId;
+  }
+
+  public boolean isReassignment(Long currentTicketId, Long requestedTicketId) {
+    if (requestedTicketId == null) {
+      return false;
+    }
+    return currentTicketId != requestedTicketId;
+  }
+
+  public boolean isKnownLabel(String label) {
+    return label != null && label.startsWith("T-");
+  }
+
 }
