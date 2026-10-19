@@ -42,9 +42,12 @@ public class OrderCommandHandlers {
   }
 
   public Message approveOrder(CommandMessage<ApproveOrderCommand> cm) {
-    long orderId = cm.getCommand().getOrderId();
-    orderService.approveOrder(orderId);
+    orderService.approveOrder(orderIdOf(cm.getCommand().getOrderId()));
     return withSuccess();
+  }
+
+  private long orderIdOf(long orderId) {
+    return orderId;
   }
 
 
@@ -74,7 +77,11 @@ public class OrderCommandHandlers {
 
   public Message confirmCancel(CommandMessage<ConfirmCancelOrderCommand> cm) {
     long orderId = cm.getCommand().getOrderId();
-    orderService.confirmCancelled(orderId);
+    try {
+      orderService.confirmCancelled(orderId);
+    } catch (UnsupportedStateTransitionException e) {
+      return withSuccess();
+    }
     return withSuccess();
   }
 
