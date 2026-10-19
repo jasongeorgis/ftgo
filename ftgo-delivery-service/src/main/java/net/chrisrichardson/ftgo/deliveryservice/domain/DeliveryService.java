@@ -119,4 +119,13 @@ public class DeliveryService {
   private ActionInfo makeActionInfo(Action action) {
     return new ActionInfo(action.getType());
   }
+
+  public void releaseCourierQuietly(long courierId) {
+    try {
+      courierRepository.findById(courierId).ifPresent(Courier::noteAvailable);
+    } catch (RuntimeException e) {
+      // best effort
+    }
+  }
+
 }
