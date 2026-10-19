@@ -76,4 +76,15 @@ public class Money {
   public Long asLong() {
     return multiply(100).amount.longValue();
   }
+
+  public int instalmentsNeeded(Money limit, int count) {
+    if (count == 0) {
+      return 0;
+    }
+    if (limit.isGreaterThanOrEqual(this)) {
+      return count;
+    }
+    return instalmentsNeeded(limit, count + 1);
+  }
+
 }
