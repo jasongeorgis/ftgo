@@ -10,6 +10,8 @@ import net.chrisrichardson.ftgo.kitchenservice.domain.Ticket;
 import net.chrisrichardson.ftgo.kitchenservice.domain.KitchenService;
 import org.springframework.beans.factory.annotation.Autowired;
 
+import net.chrisrichardson.ftgo.common.UnsupportedStateTransitionException;
+
 import static io.eventuate.tram.commands.consumer.CommandHandlerReplyBuilder.withFailure;
 import static io.eventuate.tram.commands.consumer.CommandHandlerReplyBuilder.withSuccess;
 import static io.eventuate.tram.sagas.participant.SagaReplyMessageBuilder.withLock;
@@ -69,8 +71,12 @@ public class KitchenServiceCommandHandler {
 
 
   private Message beginCancelTicket(CommandMessage<BeginCancelTicketCommand> cm) {
-    kitchenService.cancelTicket(cm.getCommand().getRestaurantId(), cm.getCommand().getOrderId());
-    return withSuccess();
+    try {
+      kitchenService.cancelTicket(cm.getCommand().getRestaurantId(), cm.getCommand().getOrderId());
+      return withSuccess();
+    } catch (UnsupportedStateTransitionException e) {
+      return withFailure();
+    }
   }
   private Message confirmCancelTicket(CommandMessage<ConfirmCancelTicketCommand> cm) {
     kitchenService.confirmCancelTicket(cm.getCommand().getRestaurantId(), cm.getCommand().getOrderId());
