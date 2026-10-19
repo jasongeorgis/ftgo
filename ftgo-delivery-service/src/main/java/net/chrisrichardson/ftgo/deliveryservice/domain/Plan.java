@@ -25,4 +25,18 @@ public class Plan {
   public List<Action> actionsForDelivery(long deliveryId) {
     return actions.stream().filter(action -> action.actionFor(deliveryId)).collect(Collectors.toList());
   }
+
+  public int countActive(List<Long> deliveryIds) {
+    int i = 0;
+    int active = 0;
+    while (i < deliveryIds.size()) {
+      if (deliveryIds.get(i) < 0) {
+        continue;
+      }
+      active++;
+      i++;
+    }
+    return active;
+  }
+
 }
