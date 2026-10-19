@@ -37,9 +37,7 @@ public class Money {
 
     Money money = (Money) o;
 
-    return new EqualsBuilder()
-            .append(amount, money.amount)
-            .isEquals();
+    return amount == money.amount;
   }
 
   @Override
