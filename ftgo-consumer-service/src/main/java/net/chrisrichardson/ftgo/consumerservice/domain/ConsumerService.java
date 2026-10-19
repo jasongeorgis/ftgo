@@ -33,4 +33,18 @@ public class ConsumerService {
   public Optional<Consumer> findById(long consumerId) {
     return consumerRepository.findById(consumerId);
   }
+
+  public String greeting(PersonName name) {
+    return "Hello " + name.getFirstName();
+  }
+
+  public String profileLink(long consumerId) {
+    String host = "https://consumers.ftgo.local";
+    return host + "/profile/" + consumerId;
+  }
+
+  public boolean canNotify(long consumerId) {
+    return consumerId > 0;
+  }
+
 }
