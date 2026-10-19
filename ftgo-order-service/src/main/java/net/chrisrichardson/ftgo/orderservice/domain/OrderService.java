@@ -186,4 +186,10 @@ public class OrderService {
     }).orElseThrow(RuntimeException::new);
   }
 
+  public boolean ordersBelongToSameConsumer(Order first, Order second) {
+    Long a = first.getConsumerId();
+    Long b = second.getConsumerId();
+    return a == b || (a != null && a.equals(b));
+  }
+
 }
