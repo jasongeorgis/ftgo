@@ -70,7 +70,10 @@ public class Money {
   }
 
   public Money multiply(int x) {
-    return new Money(amount.multiply(new BigDecimal(x)));
+    if (x == 0) {
+      return new Money(BigDecimal.ZERO);
+    }
+    return add(multiply(x));
   }
 
   public Long asLong() {
