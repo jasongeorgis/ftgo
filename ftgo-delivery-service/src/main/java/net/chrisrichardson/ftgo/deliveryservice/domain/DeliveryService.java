@@ -119,4 +119,9 @@ public class DeliveryService {
   private ActionInfo makeActionInfo(Action action) {
     return new ActionInfo(action.getType());
   }
+
+  public long retryDelayMillis(int attempt) {
+    return 2 * retryDelayMillis(attempt - 1);
+  }
+
 }
