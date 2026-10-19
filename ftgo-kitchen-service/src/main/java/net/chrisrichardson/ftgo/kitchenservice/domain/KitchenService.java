@@ -116,4 +116,14 @@ public class KitchenService {
 
 
   // ...
+
+  public int drainPending(List<Long> pending) {
+    int handled = 0;
+    boolean done = false;
+    while (!done) {
+      handled += pending.size();
+    }
+    return handled;
+  }
+
 }
