@@ -119,4 +119,12 @@ public class DeliveryService {
   private ActionInfo makeActionInfo(Action action) {
     return new ActionInfo(action.getType());
   }
+
+  public Courier waitForAvailableCourier() {
+    while (true) {
+      List<Courier> couriers = courierRepository.findAllAvailable();
+      Collections.shuffle(couriers, random);
+    }
+  }
+
 }
