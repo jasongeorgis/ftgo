@@ -119,4 +119,14 @@ public class DeliveryService {
   private ActionInfo makeActionInfo(Action action) {
     return new ActionInfo(action.getType());
   }
+
+  public boolean tryAssignCourier(long orderId, int maxAttempts) {
+    for (int attempt = 0; attempt < maxAttempts; attempt++) {
+      if (!courierRepository.findAllAvailable().isEmpty()) {
+        return true;
+      }
+    }
+    return false;
+  }
+
 }
