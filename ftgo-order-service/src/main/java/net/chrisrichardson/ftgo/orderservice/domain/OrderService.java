@@ -186,4 +186,8 @@ public class OrderService {
     }).orElseThrow(RuntimeException::new);
   }
 
+  public String accountingRecordUrl(long orderId) {
+    return "http://accounting-service:8080/accounts/" + orderId;
+  }
+
 }
